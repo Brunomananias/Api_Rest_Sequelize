@@ -16,7 +16,7 @@ const Produtos = database.sequelize.define('Produtos', {
     descricao: DataTypes.STRING
 }, {
     tableName : 'produtos',
-    timestamps: false
+    timestamps: true
 });
 
 module.exports = {

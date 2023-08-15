@@ -5,5 +5,11 @@ module.exports = {
         res.json(
             await ProdutoService.listar()
         )
-    }
+    },
+
+    async salvarProduto(req, res) {
+        res.json(
+            await ProdutoService.salvar(req, res)
+        )
+    },
 }
