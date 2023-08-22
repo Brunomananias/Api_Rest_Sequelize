@@ -1,16 +1,22 @@
 const { DataTypes } = require('sequelize');
 const database = require('../database/db');
+const { Endereco } = require('./endereco');
 
 const Clientes = database.sequelize.define('Clientes', {
-    Id:{
+    Id_cliente:{
         type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    NomeCliente: {
+    id_endereco: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        field : 'id_endereco'
+    },
+    nome: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: true
     },
     Cpf: {
         type: DataTypes.STRING(255),
@@ -24,41 +30,22 @@ const Clientes = database.sequelize.define('Clientes', {
         type: DataTypes.STRING(255),
         allowNull: true
     },
-    Assinatura: {
+    Assinante: {
         type: DataTypes.STRING(3),
-        allowNull: true
-    },
-    Rua: {
-        type: DataTypes.INTEGER(),
-        allowNull: true
-    },
-    
-    Numero: DataTypes.INTEGER,
-
-    Cidade: {
-        type: DataTypes.STRING(255),
-        allowNull: true
-    },
-    Complemento: {
-        type: DataTypes.STRING(255),
-        allowNull: true
-    },
-    Cep: {
-        type: DataTypes.STRING(12),
-        allowNull: true
-    },
-    Bairro: {
-        type: DataTypes.STRING(255),
-        allowNull: true
-    },
-    Estado: {
-        type: DataTypes.STRING(2),
         allowNull: true
     },
 }, {
     tableName : 'Clientes',
     timestamps: false
 });
+
+    Clientes.hasMany(Endereco, {
+        foreignKey: 'id_endereco'
+    });
+
+    Endereco.belongsTo(Clientes, {
+        foreignKey: 'id_endereco'
+    });
 
 module.exports = {
     Clientes
