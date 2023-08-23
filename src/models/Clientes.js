@@ -43,8 +43,9 @@ const Clientes = database.sequelize.define('Clientes', {
         foreignKey: 'id_endereco'
     });
 
-    Endereco.belongsTo(Clientes, {
-        foreignKey: 'id_endereco'
+    Clientes.belongsTo(Endereco, {
+        foreignKey: 'id_endereco',
+        allowNull: false
     });
 
 module.exports = {
