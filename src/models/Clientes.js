@@ -18,19 +18,19 @@ const Clientes = database.sequelize.define('Clientes', {
         type: DataTypes.STRING(255),
         allowNull: true
     },
-    Cpf: {
+    cpf: {
         type: DataTypes.STRING(255),
         allowNull: true
     },
-    Contato: {
+    contato: {
         type: DataTypes.STRING(13),
         allowNull: true
     },
-    Email: {
+    email: {
         type: DataTypes.STRING(255),
         allowNull: true
     },
-    Assinante: {
+    assinante: {
         type: DataTypes.STRING(3),
         allowNull: true
     },
@@ -39,13 +39,15 @@ const Clientes = database.sequelize.define('Clientes', {
     timestamps: false
 });
 
-    Clientes.hasMany(Endereco, {
-        foreignKey: 'id_endereco'
+    Clientes.hasOne(Endereco, {
+        foreignKey: 'id_endereco',
+        as: 'enderecoCliente'
     });
 
     Clientes.belongsTo(Endereco, {
         foreignKey: 'id_endereco',
-        allowNull: false
+        as: 'clienteEndereco'
+
     });
 
 module.exports = {

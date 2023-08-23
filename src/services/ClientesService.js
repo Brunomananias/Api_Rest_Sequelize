@@ -1,4 +1,4 @@
-const {Clientes} = require("../models/Clientes.js");
+const { Clientes } = require("../models/Clientes.js");
 const { Endereco } = require("../models/endereco.js");
 
 module.exports = {
@@ -12,6 +12,19 @@ module.exports = {
     },
 
     async salvar(req, res) {
-        return await Clientes.create(req.body);
+        console.log(req.body)
+        return await Clientes.create({
+            nome: req.body.nome,
+            cpf: req.body.cpf,
+            contato: req.body.contato,
+            email: req.body.email,
+            assinante: req.body.assinante,
+            clienteEndereco: req.body.endereco
+        }, {
+            include: [{
+                association: 'clienteEndereco'
+            }]
+        }
+        );
     }
 }

@@ -9,6 +9,7 @@ module.exports = {
 
     async cadastrarCliente(req, res) {
         res.json(
+            
             await ClientesService.salvar(req, res)
         )
     },
