@@ -41,12 +41,12 @@ const Clientes = database.sequelize.define('Clientes', {
 
     Clientes.hasOne(Endereco, {
         foreignKey: 'id_endereco',
-        as: 'enderecoCliente'
+        as: 'clienteEndereco'
     });
 
-    Clientes.belongsTo(Endereco, {
+    Endereco.belongsTo(Clientes, {
         foreignKey: 'id_endereco',
-        as: 'clienteEndereco'
+        as: 'enderecoCliente'
 
     });
 
