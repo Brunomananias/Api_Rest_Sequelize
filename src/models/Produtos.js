@@ -12,11 +12,12 @@ const Produtos = database.sequelize.define('Produtos', {
         type: DataTypes.STRING(255),
         allowNull: false
     },
-    preco: DataTypes.DECIMAL,
-    descricao: DataTypes.STRING
+    quantidade: DataTypes.INTEGER,
+    precoCusto: DataTypes.DECIMAL,
+    precoRevenda: DataTypes.DECIMAL,
 }, {
     tableName : 'produtos',
-    timestamps: true
+    timestamps: false
 });
 
 module.exports = {
