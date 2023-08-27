@@ -12,4 +12,10 @@ module.exports = {
             await ProdutoService.salvar(req, res)
         )
     },
+
+    async excluirProduto(req, res) {
+        res.json(
+            await ProdutoService.excluir(req.params.id)
+        )
+    }
 }
