@@ -9,8 +9,13 @@ module.exports = {
 
     async cadastrarCliente(req, res) {
         res.json(
-            
             await ClientesService.salvar(req, res)
         )
     },
+
+    async excluirCliente(req, res) {
+        res.json(
+            await ClientesService.excluir(req.params.id)
+        )
+    }
 }

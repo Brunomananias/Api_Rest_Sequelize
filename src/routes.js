@@ -9,7 +9,7 @@ routes.delete('/Produtos/:id', ProdutoController.excluirProduto)
 
 routes.get('/Clientes', ClientesController.listarClientes)
 routes.post('/Clientes', ClientesController.cadastrarCliente)
-
+routes.delete('/Clientes/:id', ClientesController.excluirCliente)
 
 
 module.exports = routes

@@ -22,5 +22,17 @@ module.exports = {
             }]
         }
         );
+    },
+
+    async excluir(id) {
+        if (!await Clientes.findByPk(id)) {
+            return `Cliente com o id ${id} não encontrada!`
+        }
+        await Clientes.destroy({
+            where: {
+                id_cliente : id
+            }
+        })
+        return `Cliente com o id ${id} excluída com sucesso!`
     }
 }
