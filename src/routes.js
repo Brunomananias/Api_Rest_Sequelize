@@ -7,6 +7,7 @@ routes.get('/produtos', ProdutoController.listarTodosProdutos)
 routes.post('/produtos', ProdutoController.salvarProduto)
 routes.delete('/Produtos/:id', ProdutoController.excluirProduto)
 
+routes.get('/Clientes/:id', ClientesController.buscarCliente)
 routes.get('/Clientes', ClientesController.listarClientes)
 routes.post('/Clientes', ClientesController.cadastrarCliente)
 routes.delete('/Clientes/:id', ClientesController.excluirCliente)

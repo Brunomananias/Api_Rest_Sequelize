@@ -31,7 +31,7 @@ const Clientes = database.sequelize.define('Clientes', {
         allowNull: true
     },
     assinante: {
-        type: DataTypes.STRING(3),
+        type: DataTypes.STRING(50),
         allowNull: true
     },
 }, {

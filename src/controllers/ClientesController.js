@@ -17,5 +17,11 @@ module.exports = {
         res.json(
             await ClientesService.excluir(req.params.id)
         )
+    },
+
+    async buscarCliente(req, res) {
+        res.json(
+            await ClientesService.buscarCliente(req.params.id)
+        )
     }
 }
