@@ -36,17 +36,16 @@ module.exports = {
         return `Cliente com o id ${id} excluída com sucesso!`
     },
 
+    
     async buscarCliente(id) {
         if (!await Clientes.findByPk(id)) {
             return `Cliente com o id ${id} não encontrada!`
         }
-        await Clientes.findAll({
+        return await Clientes.findOne({
+            include: 'clienteEndereco',
             where: {
                 id_cliente : id
             }
-        })
-        return await Clientes.findAll({
-            include: 'clienteEndereco'
         });
     }
 }
