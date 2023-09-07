@@ -10,7 +10,7 @@ const Endereco = database.sequelize.define('endereco_cliente', {
         primaryKey: true
     },
     rua: {
-        type: DataTypes.INTEGER(),
+        type: DataTypes.STRING(255),
         allowNull: true
     },
     numero: {
