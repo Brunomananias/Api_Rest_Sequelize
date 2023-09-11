@@ -21,7 +21,7 @@ module.exports = {
 
     async buscarServico(req, res) {
         res.json(
-            await servicosService.buscarCliente(req.params.id)
+            await servicosService.buscarServico(req.params.id)
         )
     }
 }

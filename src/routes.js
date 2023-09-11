@@ -14,7 +14,10 @@ routes.post('/Clientes', ClientesController.cadastrarCliente)
 routes.delete('/Clientes/:id', ClientesController.excluirCliente)
 
 routes.get('/servicos', servicosController.listarServicos)
+routes.get('/servicos/:id', servicosController.buscarServico)
 routes.post('/servicos', servicosController.cadastrarServico)
+routes.delete('/servicos/:id', servicosController.excluirServico)
+
 
 
 module.exports = routes

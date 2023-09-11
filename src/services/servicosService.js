@@ -21,26 +21,26 @@ module.exports = {
     },
 
     async excluir(id) {
-        if (!await Clientes.findByPk(id)) {
-            return `Cliente com o id ${id} não encontrada!`
+        if (!await Servicos.findByPk(id)) {
+            return `Serviço com o id ${id} não encontrada!`
         }
-        await Clientes.destroy({
+        await Servicos.destroy({
             where: {
-                id_cliente : id
+                id_servico : id
             }
         })
-        return `Cliente com o id ${id} excluída com sucesso!`
+        return `Serviço com o id ${id} excluída com sucesso!`
     },
 
     
-    async buscarCliente(id) {
-        if (!await Clientes.findByPk(id)) {
-            return `Cliente com o id ${id} não encontrada!`
+    async buscarServico(id) {
+        if (!await Servicos.findByPk(id)) {
+            return `Serviço com o id ${id} não encontrada!`
         }
-        return await Clientes.findOne({
-            include: 'clienteEndereco',
+        return await Servicos.findOne({
+            include: 'clienteServico',
             where: {
-                id_cliente : id
+                id_servico : id
             }
         });
     }
