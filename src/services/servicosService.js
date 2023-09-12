@@ -9,6 +9,7 @@ module.exports = {
 
     async salvar(req, res) {
         return await Servicos.create({
+            id_cliente: req.body.id_cliente,
             servico: req.body.servico,
             preco: req.body.preco,
             dataProcedimento: req.body.dataProcedimento,
@@ -37,10 +38,10 @@ module.exports = {
         if (!await Servicos.findByPk(id)) {
             return `Serviço com o id ${id} não encontrada!`
         }
-        return await Servicos.findOne({
+        return await Servicos.findAll({
             include: 'clienteServico',
             where: {
-                id_servico : id
+                id_cliente : id
             }
         });
     }
