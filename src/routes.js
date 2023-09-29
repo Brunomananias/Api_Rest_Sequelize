@@ -11,6 +11,7 @@ routes.delete('/Produtos/:id', ProdutoController.excluirProduto)
 routes.get('/Clientes/:id', ClientesController.buscarCliente)
 routes.get('/Clientes', ClientesController.listarClientes)
 routes.post('/Clientes', ClientesController.cadastrarCliente)
+routes.put('/Clientes/:id', ClientesController.atualizarCliente)
 routes.delete('/Clientes/:id', ClientesController.excluirCliente)
 
 routes.get('/servicos', servicosController.listarServicos)

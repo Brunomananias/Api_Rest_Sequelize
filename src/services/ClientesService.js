@@ -24,6 +24,23 @@ module.exports = {
         );
     },
 
+    async atualizar(req, res) {
+        try{
+            const { id_cliente } = req.params
+            const {nome, cpf, contato, email, assinante} = req.body
+            const clientes = await Clientes.findOne({ where: { id_cliente }})
+    
+            if(!clientes) {
+                res.status(401).json({ message: "Nenhum usuario encontrado"})
+            }else{
+                const clientes = await Clientes.update({nome, cpf, contato, email, assinante}, { where: { id_cliente }})
+                res.status(200).json({ clientes })
+            }
+        }catch (error){
+            res.status(400).json({error})
+        }
+    },
+
     async excluir(id) {
         if (!await Clientes.findByPk(id)) {
             return `Cliente com o id ${id} não encontrada!`

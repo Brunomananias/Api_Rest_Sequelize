@@ -13,6 +13,12 @@ module.exports = {
         )
     },
 
+    async atualizarCliente(req, res) {
+        res.json(
+            await ClientesService.atualizar(req, res, req.params.id)
+        )
+    },
+
     async excluirCliente(req, res) {
         res.json(
             await ClientesService.excluir(req.params.id)
