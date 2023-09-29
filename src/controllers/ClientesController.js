@@ -15,7 +15,7 @@ module.exports = {
 
     async atualizarCliente(req, res) {
         res.json(
-            await ClientesService.atualizar(req, res, req.params.id)
+            await ClientesService.atualizar(req, res)
         )
     },
 

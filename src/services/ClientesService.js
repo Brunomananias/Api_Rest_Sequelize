@@ -26,18 +26,19 @@ module.exports = {
 
     async atualizar(req, res) {
         try{
-            const { id_cliente } = req.params
+            const id_cliente = req.params.id
             const {nome, cpf, contato, email, assinante} = req.body
-            const clientes = await Clientes.findOne({ where: { id_cliente }})
-    
+            let clientes = await Clientes.findOne({ where: { id_cliente }})
+
             if(!clientes) {
-                res.status(401).json({ message: "Nenhum usuario encontrado"})
-            }else{
-                const clientes = await Clientes.update({nome, cpf, contato, email, assinante}, { where: { id_cliente }})
-                res.status(200).json({ clientes })
+                res.status(404).json({ message: "Nenhum usuario encontrado"})
+                return
             }
+            clientes = await Clientes.update({nome, cpf, contato, email, assinante}, { where: { Id_cliente : id_cliente }})
+            res.status(200).json({ clientes })
         }catch (error){
-            res.status(400).json({error})
+            console.log(error);
+            res.status(500).json({error})
         }
     },
 
